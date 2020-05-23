@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!--
+  To run this build script, type:
+
+  ant -f hw.xml
+
+  on a shell.
+-->
+
+<project name="HW12" basedir="."  default="clean">
+	<property environment="env"/>
+	<echo message="JUNIT: ${env.JUNIT}" />
+	<echo message="ANT_HOME: ${env.ANT_HOME}" />
+
+	<property name="src" location="src" />
+	<property name="bin" location="bin" />
+	<property name="test.src" location="test/src"/>
+	<property name="test.bin" location="test/bin"/>
+	<property name="test.reports" location="test/reports"  />
+	
+<path id="classpath">
+    <pathelement location="${env.CLASSPATH}"/>
+    <pathelement location="bin"/>
+    <pathelement location="src"/>
+    <pathelement location="test/bin"/>
+    <pathelement location="test/src"/>
+    <pathelement path= "${env.JUNIT}" />
+    <fileset dir="${env.JUNIT}" includes="org.junit*.jar" excludes="org.junit.vintage.*.jar" />
+    <fileset dir="${env.JUNIT}" includes="org.opentest4j*.jar"/>
+    <fileset dir="${env.JUNIT}" includes="*.jar" />
+</path>
+
+
+<target name="init">
+	<mkdir dir="${bin}"/>
+	<mkdir dir="${test.bin}"/>
+	<mkdir dir="${test.reports}"/>
+</target>
+
+<target name="compile" depends="init">
+		<javac srcdir="${src}" destdir="${bin}" includeAntRuntime="no">
+			<classpath refid="classpath"/>
+			<include name="edu/umb/cs680/hw12/APFS/*.java"/>
+           		<include name="edu/umb/cs680/hw12/FSFoundation/*.java"/>
+		</javac>
+	
+
+
+		<javac srcdir="${test.src}" destdir="${test.bin}" includeAntRuntime="no">
+			<classpath refid="classpath"/>
+			<include name="edu/umb/cs680/hw12/*Test.java"/>
+			
+		</javac>
+</target>
+
+
+<target name="JUnit_Test" depends="compile">
+            <junitlauncher printSummary="true">
+		<classpath refid="classpath" />
+			<testclasses outputdir="${test.reports}">
+				<fileset dir="${test.bin}">
+			<include name="src/edu/umb/cs680/hw12/*Test.class"/>
+				</fileset>
+				<listener type="legacy-plain" sendSysOut="true"/>
+			</testclasses>
+	</junitlauncher>
+</target>
+
+<target name="clean" depends="JUnit_Test">
+
+<delete includeemptydirs="true">
+			<fileset dir="${bin}/edu/umb/cs680/hw12/" includes="**/*"/> 
+                        <fileset dir="${test.bin}/src/edu/umb/cs680/hw12/" includes="**/*"/> 	
+
+</delete>
+
+			
+
+</target>
+</project>
