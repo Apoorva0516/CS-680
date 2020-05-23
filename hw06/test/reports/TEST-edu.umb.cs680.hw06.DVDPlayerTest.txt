@@ -1,0 +1,14 @@
+Testcase: edu.umb.cs680.hw06.DVDPlayerTest
+Test: DrawerOpenTest() took 6 milli sec(s)
+Test: DrawerClosedPlayingTest() took 0 milli sec(s)
+Test: DrawerClosedNotPlayingTest() took 1 milli sec(s)
+Tests run: 3, Failures: 0, Skipped: 0, Aborted: 0, Time elapsed: 11 milli sec(s)
+------------- Standard Output ---------------
+Play DVD
+Stop playing DVD
+Open Drawer
+Close Drawer
+Play DVD
+Do nothing
+Stop playing DVD
+------------- ---------------- ---------------
