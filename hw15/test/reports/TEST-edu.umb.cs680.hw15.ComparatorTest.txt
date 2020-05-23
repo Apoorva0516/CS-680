@@ -1,0 +1,9 @@
+Testcase: edu.umb.cs680.hw15.ComparatorTest
+Test: sortFileOfHomeReverseAlphabetical() took 4 milli sec(s)
+Test: sortChildrenOfTimeStampBased() took 0 milli sec(s)
+Test: testGetSubDirOfRootReversedAlphabetical() took 0 milli sec(s)
+Test: sortChildrenOfHomeReverseAlphabetical() took 1 milli sec(s)
+Test: testGetChilrenOfHome() took 0 milli sec(s)
+Test: testGetChilrenOfRoot() took 1 milli sec(s)
+Test: testGetSubDirOfRoot() took 0 milli sec(s)
+Tests run: 7, Failures: 0, Skipped: 0, Aborted: 0, Time elapsed: 12 milli sec(s)
